@@ -16,9 +16,9 @@ struct ContentView: View {
                 ForEach(viewModel.cards) { card in
                     CardView(card)
                         .aspectRatio(2/3, contentMode: .fit)
-//                        .onTapGesture {
-//                            viewModel.choose(card)
-//                        }
+                        .onTapGesture {
+                            viewModel.move(card)
+                        }
                 }
                 }
             .foregroundColor(.blue)
@@ -43,7 +43,7 @@ struct CardView: View {
                 base.foregroundColor(.white)
                 base.strokeBorder(lineWidth: 2)
                 Text(card.content)
-            }
+            }.opacity(card.content=="" ? 0 : 1)
         }
     }
 }

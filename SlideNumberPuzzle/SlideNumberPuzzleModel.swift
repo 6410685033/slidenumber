@@ -10,19 +10,14 @@ import Foundation
 struct SlideNumberPuzzleModel<CardContentType> {
     private(set) var cards: Array<Card> // private(set) => read only
     
-    init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> String) {
+    init(numberOfCards: Int, cardContentFactory: (Int) -> String) {
         cards = []
-        for pairIndex in 0..<numberOfPairsOfCards {
+        for pairIndex in 0..<numberOfCards {
             let content = cardContentFactory(pairIndex)
             cards.append(Card(content: content))
         }
-        shuffle()
+//        shuffle()
     }
-    
-//    mutating func choose(_ card: Card) { // .choose(card) no need to .choose(card: card)
-//        let chosenIndex = index(of: card)
-//        cards[chosenIndex].isFaceUp.toggle()
-//    }
     
     private func index(of card: Card) -> Int {
         for index in cards.indices {
@@ -37,6 +32,19 @@ struct SlideNumberPuzzleModel<CardContentType> {
         cards.shuffle()
     }
     
+    
+    mutating func move(_ card: Card) {
+        // down +4, up -4, right +1, left -1
+        let chosenIndex = index(of: card)
+//        let content = card.content
+
+        cards.swapAt(chosenIndex, 15)
+    }
+    
+    func moveUp(_ chosenIndex: Int) {
+//        model.cards
+    }
+    
     struct Card: Identifiable {
         init(content: String) {
             self.content = content
@@ -44,6 +52,7 @@ struct SlideNumberPuzzleModel<CardContentType> {
         
         let id = UUID()
         let content: String
+        
     }
 }
 
