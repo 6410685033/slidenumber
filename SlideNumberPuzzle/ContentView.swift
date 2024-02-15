@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @ObservedObject var viewModel = NumberViewModel()
     
     var body: some View {
@@ -23,7 +24,14 @@ struct ContentView: View {
                 }
             .foregroundColor(.blue)
             Spacer()
+            
+            Text("move: \(viewModel.moveCount)")
+            Spacer()
+            
+            Button("Restart") {
+                viewModel.restart()
             }
+        }
         .padding()
         }
     }

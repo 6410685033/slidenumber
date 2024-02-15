@@ -18,6 +18,10 @@ class NumberViewModel: ObservableObject { // ObservableObject make this class up
         return model.cards
     }
     
+    var moveCount: Int {
+        return model.moveCount
+    }
+    
     func shuffle() { // .shuffle()
         model.shuffle()
     }
@@ -26,7 +30,7 @@ class NumberViewModel: ObservableObject { // ObservableObject make this class up
         model.move(card)
     }
     
-//    func choose(_ card: SlideNumberPuzzleModel<String>.Card) {
-//        model.choose(card)
-//    }
+    func restart() {
+        model.restart()
+    }
 }
