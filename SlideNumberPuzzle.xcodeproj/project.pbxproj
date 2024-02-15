@@ -11,6 +11,8 @@
 		7BDC24C42B7DB4C100752715 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC24C32B7DB4C100752715 /* ContentView.swift */; };
 		7BDC24C62B7DB4C200752715 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDC24C52B7DB4C200752715 /* Assets.xcassets */; };
 		7BDC24C92B7DB4C200752715 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDC24C82B7DB4C200752715 /* Preview Assets.xcassets */; };
+		7BDC24D42B7DD10F00752715 /* NumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC24D32B7DD10F00752715 /* NumberViewModel.swift */; };
+		7BDC24D62B7DD14F00752715 /* SlideNumberPuzzleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDC24D52B7DD14F00752715 /* SlideNumberPuzzleModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		7BDC24C32B7DB4C100752715 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7BDC24C52B7DB4C200752715 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BDC24C82B7DB4C200752715 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7BDC24D32B7DD10F00752715 /* NumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewModel.swift; sourceTree = "<group>"; };
+		7BDC24D52B7DD14F00752715 /* SlideNumberPuzzleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideNumberPuzzleModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				7BDC24C32B7DB4C100752715 /* ContentView.swift */,
 				7BDC24C52B7DB4C200752715 /* Assets.xcassets */,
 				7BDC24C72B7DB4C200752715 /* Preview Content */,
+				7BDC24D32B7DD10F00752715 /* NumberViewModel.swift */,
+				7BDC24D52B7DD14F00752715 /* SlideNumberPuzzleModel.swift */,
 			);
 			path = SlideNumberPuzzle;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BDC24D62B7DD14F00752715 /* SlideNumberPuzzleModel.swift in Sources */,
+				7BDC24D42B7DD10F00752715 /* NumberViewModel.swift in Sources */,
 				7BDC24C42B7DB4C100752715 /* ContentView.swift in Sources */,
 				7BDC24C22B7DB4C100752715 /* SlideNumberPuzzleApp.swift in Sources */,
 			);

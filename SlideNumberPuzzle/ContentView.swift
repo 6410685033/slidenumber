@@ -8,14 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewModel = NumberViewModel()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
+            LazyVGrid(columns: [GridItem(), GridItem(), GridItem(), GridItem()]) {
+                ForEach(viewModel.cards) { card in
+                    CardView(card)
+                        .aspectRatio(2/3, contentMode: .fit)
+//                        .onTapGesture {
+//                            viewModel.choose(card)
+//                        }
+                }
+                }
+            .foregroundColor(.blue)
+            Spacer()
+            }
         .padding()
+        }
+    }
+
+struct CardView: View {
+    var card: SlideNumberPuzzleModel<String>.Card
+
+    init(_ card: SlideNumberPuzzleModel<String>.Card) {
+        self.card = card
+    }
+    
+    var body: some View {
+        ZStack {
+            let base = RoundedRectangle(cornerRadius:12)
+            
+            Group {
+                base.foregroundColor(.white)
+                base.strokeBorder(lineWidth: 2)
+                Text(card.content)
+            }
+        }
     }
 }
 
