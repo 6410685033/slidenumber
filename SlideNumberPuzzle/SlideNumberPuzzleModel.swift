@@ -36,9 +36,16 @@ struct SlideNumberPuzzleModel<CardContentType> {
     mutating func move(_ card: Card) {
         // down +4, up -4, right +1, left -1
         let chosenIndex = index(of: card)
-//        let content = card.content
-
-        cards.swapAt(chosenIndex, 15)
+        var swapIndex = -1
+        
+        for i in 0...15 {
+            if cards[i].content == "" {
+                swapIndex = i
+                break
+            }
+        }
+        
+        swapIndex == -1 ? nil:cards.swapAt(chosenIndex, swapIndex)
     }
     
     func moveUp(_ chosenIndex: Int) {
