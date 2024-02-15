@@ -19,19 +19,18 @@ This game is a classic puzzle where players rearrange numbered tiles to reach a 
 ### How to play
 
 - In the beginning, you'll see numbered tiles arranged in seemingly random order, with one empty space.
-<img src="media/start.png" width=30%>
+<img src="media/init.png" width=30%>
 
 - **Select a tile:** Tap on any tile adjacent to the empty space.
-<img src="media/firstGuess.png" width=30%>
 
 - **Slide the tile:** The selected tile will move into the empty space, creating a new empty space in its previous position.
-<img src="media/higher.png" width=30%>
+<img src="media/move.gif" width=30%>
 
 - **Continue sliding:** You can only slide tiles horizontally or vertically into the empty space. Repeat by selecting and sliding adjacent tiles until you reach the desired arrangement.
-<img src="media/correct.png" width=30%>
+<img src="media/continueMove.gif" width=30%>
 
 - **Congratulations!** You've solved the puzzle when all tiles are in their correct positions, **with the empty space in the bottom right corner.**
-<img src="media/restart.png" width=30%>
+<img src="media/win.png" width=30%>
 
 #### Tips and Strategies: (From Google Gemini)
 
