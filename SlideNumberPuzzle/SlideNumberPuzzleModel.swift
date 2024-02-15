@@ -10,7 +10,7 @@ import Foundation
 struct SlideNumberPuzzleModel<CardContentType> {
     private(set) var cards: Array<Card> // private(set) => read only
     var moveCount: Int
-    var win: Bool
+    var win: Bool = false
     
     init(numberOfCards: Int, cardContentFactory: (Int) -> String) {
         cards = []
@@ -19,8 +19,11 @@ struct SlideNumberPuzzleModel<CardContentType> {
             cards.append(Card(content: content))
         }
         moveCount = 0
-        win = false
-        //        shuffle()
+        // shuffle() // shuffle not called here
+    }
+
+    mutating func shuffle() {
+        cards.shuffle()
     }
     
     private func index(of card: Card) -> Int {
@@ -32,9 +35,6 @@ struct SlideNumberPuzzleModel<CardContentType> {
         return 0
     }
     
-    mutating func shuffle() {
-        cards.shuffle()
-    }
     
     
     mutating func move(_ card: Card) {
@@ -44,7 +44,7 @@ struct SlideNumberPuzzleModel<CardContentType> {
         var swapIndex = -1
         
         for i in posibleIndex {
-            if (i > 0 && i < cards.count){
+            if (i >= 0 && i < cards.count){
                 // find index to swap
                 if cards[i].content == "" {
                     swapIndex = i
@@ -53,24 +53,31 @@ struct SlideNumberPuzzleModel<CardContentType> {
             }
         }
         
+        // chosen card can swap
         if swapIndex != -1 {
             cards.swapAt(chosenIndex, swapIndex)
             moveCount += 1
+            checkWin()
         }
     }
     
-
-    
-    func moveUp(_ chosenIndex: Int) {
-//        model.cards
+    mutating func checkWin() {
+        for i in 0..<15 {
+            let index = String(i+1)
+            let current = cards[i].content
+            
+            if index != current {
+                return
+            }
+            print(win)
+        }
+        win = true
     }
-    
-    
-    
+
     mutating func restart() {
         moveCount = 0
-        win = false
         shuffle()
+        win = false
     }
     
     struct Card: Identifiable {
@@ -80,7 +87,7 @@ struct SlideNumberPuzzleModel<CardContentType> {
         
         let id = UUID()
         let content: String
-        
+    
     }
 }
 
