@@ -10,6 +10,7 @@ import Foundation
 struct SlideNumberPuzzleModel<CardContentType> {
     private(set) var cards: Array<Card> // private(set) => read only
     var moveCount: Int
+    var win: Bool
     
     init(numberOfCards: Int, cardContentFactory: (Int) -> String) {
         cards = []
@@ -18,7 +19,8 @@ struct SlideNumberPuzzleModel<CardContentType> {
             cards.append(Card(content: content))
         }
         moveCount = 0
-//        shuffle()
+        win = false
+        //        shuffle()
     }
     
     private func index(of card: Card) -> Int {
@@ -38,18 +40,26 @@ struct SlideNumberPuzzleModel<CardContentType> {
     mutating func move(_ card: Card) {
         // down +4, up -4, right +1, left -1
         let chosenIndex = index(of: card)
+        let posibleIndex = [chosenIndex-4, chosenIndex-1, chosenIndex+1, chosenIndex+4]
         var swapIndex = -1
         
-        for i in 0...15 {
-            if cards[i].content == "" {
-                swapIndex = i
-                break
+        for i in posibleIndex {
+            if (i > 0 && i < cards.count){
+                // find index to swap
+                if cards[i].content == "" {
+                    swapIndex = i
+                    break
+                }
             }
         }
         
-        swapIndex == -1 ? nil:cards.swapAt(chosenIndex, swapIndex)
-        moveCount += 1
+        if swapIndex != -1 {
+            cards.swapAt(chosenIndex, swapIndex)
+            moveCount += 1
+        }
     }
+    
+
     
     func moveUp(_ chosenIndex: Int) {
 //        model.cards
@@ -59,6 +69,7 @@ struct SlideNumberPuzzleModel<CardContentType> {
     
     mutating func restart() {
         moveCount = 0
+        win = false
         shuffle()
     }
     
